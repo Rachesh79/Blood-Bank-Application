@@ -1,14 +1,13 @@
-const mongoose = require('mongoose');
+const mongoose = require('mongoose')
 
-const connectDB = async () => {
+const connectDB = async() => {
     try{
-        await mongoose.connect("mongodb://127.0.0.1:27017/bloodbank");
-        console.log("MongoDB Connected".bgGreen.white);
+        await mongoose.connect(process.env.MONGO_URL)
+        console.log(`connect to MongoDB ${mongoose.connection.host}`.bgMagenta.white);
     }
-    catch(error){
-        console.log(`MongoDB Error: ${error}`.bgRed.white);
+    catch{
+        console.log(`MongoDB error ${error}`.bgRed.white);
     }
+}
 
-};
-
-module.exports = connectDB;
+module.exports = connectDB

@@ -18,7 +18,7 @@ const userSchema = mongoose.Schema({
     organizationName:{
         type:String,
         required: function(){
-            if(this.role == 'organization' || this.role === 'admin'){
+            if(this.role == 'organization'){
                 return true
             }
             return false
@@ -55,4 +55,4 @@ const userSchema = mongoose.Schema({
     },
 },{timestamps:true})
 
-module.exports = mongoose.model('donar',userSchema)
+module.exports = mongoose.model('Users',userSchema)

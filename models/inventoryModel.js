@@ -3,17 +3,21 @@ const mongoose = require('mongoose')
 const inventorySchema = new mongoose.Schema({
     inventoryType:{
         type:String,
-        required:[true,'inventory type required'],
+        required:[true,'Inventory type required'],
         enum:['in','out']
     },
     bloodGroup:{
         type:String,
-        required:[true,"blood group is required"],
+        required:[true,"Blood group is required"],
         enum:['O+','O-','AB+','AB-','A-','A+','B+','B-']
     },
     quantity:{
         type:Number,
-        require:[true,"blood quantity is required"]
+        require:[true,"Blood quantity is required"]
+    },
+    email:{
+        type:String,
+        require: [true, "Email is required"]
     },
     organization:{
         type: mongoose.Schema.Types.ObjectId,
